@@ -1,0 +1,24 @@
+<h1>GeekTwitter</h1>
+<h3>新規投稿</h3>
+<%= form_for @tweet do |f| %>
+<div class="field">
+    <%= f.label :タイトル %><br>
+    <%= f.text_field :title, :size => 100 %>
+  </div>
+  <div class="field">
+    <%= f.label :本文 %><br>
+    <%= f.text_area :body, :size => "100x20" %>
+  </div>
+  <div class="field">
+    <%= f.label :日時 %><br>
+    <%= f.date_field :eventtime %>
+  </div>
+    <div class="field">
+    <%= f.label :写真 %><br>
+    <%= f.file_field :image %>
+  </div>
+
+
+  <%= f.submit "Tweetする" %>
+<% end %>
+<%= link_to "Tweet一覧に戻る", tweets_path %>

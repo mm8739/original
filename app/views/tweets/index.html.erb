@@ -1,0 +1,54 @@
+<div class="topimg">
+<%= image_tag "top.jpg", class:"topimage" %>
+</div>
+
+<div class="purple">
+  <div class="block">
+    <div class="one">
+      <h1>01</h1>
+      <p><span class="big">質問力</span>が身につく</p><br>
+      知らない人に話しかけることは<br>
+      勇気がいりますが、今いる友人も最初は他人だったはず！<br>
+      一歩踏み出すと、思いもしなかった学生生活が待っているかも！？
+    </div>
+    <div class="one">
+      <h1>02</h1>
+      <p><span class="big">発想力</span>を養える</p><br>
+      みんなで集まって企画会議をします。<br>
+      意見を出し合うことで、<br>
+      1人では考え付かなかった新しいものが生まれます!
+    </div>
+    <div class="one">
+      <h1>03</h1>
+      <p>できることが<span class="big">増える</span></p><br>
+      ディレクターやキャスター、 レポーター等、 <br>
+      役割が明確に 分担されている訳ではありません。 <br>
+      自分がやってみたいことに挑戦できます。 <br>
+      それが将来の仕事に繋がるかも・・・？
+    </div>
+  </div>
+</div>
+
+    <div class="yellow">
+    <br><h3>活動報告</h3><br>
+        <% if user_signed_in? %>
+                <% if current_user == @user %>
+                  <%= link_to "新規投稿へ", new_tweet_path %>
+                <% end %>
+              <% end %>
+      <div class="tweets-container">
+        <% @tweets.each do |t| %>
+        <div class="tweet">
+        <%= link_to tweet_path(t.id) do %>
+        <%= image_tag t.image_url, size: "250x200" if t.image? %><br>
+        <% end %>
+        <%= t.title %>
+        </div>
+        <% end %>
+      </div>
+      <div class="page">
+      <%= paginate @tweets %> 
+      </div>
+    </div>
+
+

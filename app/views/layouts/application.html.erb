@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geektwitter2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="headerimage1">
+        <%= image_tag "ku.png", size: "50x50"  %>
+      </div>
+        <div class="headernav1">
+          <%= link_to "　活動内容　　", tweets_path %>
+          <a href="">　Q&A　　</a>
+          <a href="">　問い合わせ　</a>
+          
+
+        </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div class="headernav2">
+        <%= link_to "　活動内容　　", tweets_path %>
+        <a href="">　Q&A　　</a>
+        <a href="">　問い合わせ　</a>
+      </div>
+      <div class="headerimage2">
+        <%= image_tag "ku.png", size: "50x50"  %>
+      </div>
+    </footer>
+  </body>
+</html>

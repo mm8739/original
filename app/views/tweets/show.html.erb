@@ -1,0 +1,15 @@
+<h1>GeekTwitter</h1>
+<h3>Tweet詳細</h3>
+<div class="tweet">
+<p><%= @tweet.title %></p>
+  <%if @tweet.body.nil? %>  
+      <%=@tweet.body%>
+  <% else %>
+    <%=safe_join(@tweet.body.split("\n"),tag(:br))%>    
+  <%end %>
+
+  <p><%= @tweet.eventtime.to_s(:datetime_jp) %></p>
+</div>
+
+<%= link_to "Tweet一覧に戻る", tweets_path %>
+<%= link_to "編集する", edit_tweet_path(@tweet.id) %>
